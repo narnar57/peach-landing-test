@@ -35,15 +35,40 @@
     .badge{font-size:12px;color:#222;background:var(--mint);display:inline-block;padding:6px 10px;border-radius:999px}
     .chips{display:flex;gap:8px;flex-wrap:wrap}
 
-    /* HERO */
+    /* HERO - IMAGES FIXES */
     .hero{background:linear-gradient(180deg, var(--peach) 0%, var(--peach-50) 70%);padding:40px 16px 30px;border-bottom:1px solid rgba(0,0,0,.06)}
-    .hero-visual{height:220px;border-radius:18px;background:#fff url('') center/cover no-repeat;display:flex;align-items:center;justify-content:center;border:1px dashed #e6c6c6;margin-bottom:20px}
-    .hero-visual span{color:#B86B77;font-weight:600;text-align:center;padding:0 22px}
+    .hero-visual{
+      height:220px;
+      border-radius:18px;
+      overflow:hidden;
+      margin-bottom:20px;
+      background:var(--peach-50);
+    }
+    .hero-visual img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:18px;
+    }
 
-    .trust{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:center;margin-top:20px}
-    .amazon-trust{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px;font-size:13px;color:var(--ink-70);opacity:0.8}
-    .amazon-trust img{height:18px;opacity:0.8}
-    .amazon-trust span{font-weight:500}
+    /* AMAZON TRUST - LOGOS PLUS GROS SUR MOBILE */
+    .trust{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center;margin-top:20px}
+    .amazon-trust{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      margin-top:12px;
+      font-size:15px;
+      color:var(--ink-70);
+      opacity:0.9;
+    }
+    .amazon-trust img{
+      height:24px;
+      opacity:0.95;
+      filter:saturate(1.1) contrast(1.05);
+    }
+    .amazon-trust span{font-weight:600}
     .trust .t{font-size:12px;color:#444;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:999px;padding:8px 12px}
 
     /* Thought bubbles */
@@ -52,8 +77,19 @@
     .bubble{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:18px;padding:18px 18px 18px 50px;position:relative}
     .bubble::before{content:"💭";position:absolute;left:15px;top:15px}
 
-    /* Mini story */
-    .story .thumb{height:160px;border-radius:14px;background:#fff url('') center/cover no-repeat;border:1px dashed #c7c7c7;display:flex;align-items:center;justify-content:center;color:#777;margin-bottom:24px}
+    /* Mini story - IMAGE FIXE */
+    .story .thumb{
+      height:160px;
+      border-radius:14px;
+      overflow:hidden;
+      margin-bottom:24px;
+      background:var(--peach-50);
+    }
+    .story .thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
     .text-link{color:#2a5bd7;font-weight:700;text-decoration:underline}
 
     /* 5 reasons */
@@ -62,29 +98,55 @@
     .reason .ico{font-size:22px;line-height:1.1}
     .vs{font-size:14px;color:#555;background:var(--peach-50);border:1px dashed #e7d5d5;padding:12px;border-radius:10px;margin-top:12px}
 
-    /* Comparison table */
-    .table{overflow:auto}
-    table{width:100%;border-collapse:collapse;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:14px;overflow:hidden}
-    th,td{padding:16px 12px;border-bottom:1px solid #f0f0f0;text-align:left;font-size:14px}
-    th{background:var(--peach)}
+    /* TABLEAU COMPARATIF MOBILE-OPTIMISÉ */
+    .table{
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+      border-radius:14px;
+      margin:0 -16px;
+    }
+    table{
+      width:100%;
+      min-width:500px;
+      border-collapse:collapse;
+      background:#fff;
+      border:1px solid rgba(0,0,0,.06);
+    }
+    th,td{
+      padding:12px 8px;
+      border-bottom:1px solid #f0f0f0;
+      text-align:left;
+      font-size:13px;
+      white-space:nowrap;
+    }
+    th{background:var(--peach);font-weight:700}
     td:nth-child(2){background:rgba(239,184,200,.15)}
-    .check{color:var(--ok);font-weight:900}
-    .cross{color:var(--no);font-weight:900}
+    .check{color:var(--ok);font-weight:900;font-size:12px}
+    .cross{color:var(--no);font-weight:900;font-size:12px}
 
-    /* App section */
+    /* APP MOCKUPS - IMAGES FIXES */
     .phones{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px;max-width:400px;margin-left:auto;margin-right:auto}
-    .mock{background:#fff;border:1px dashed #c7c7c7;border-radius:16px;height:200px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#777}
+    .mock{
+      background:#fff;
+      border-radius:16px;
+      height:200px;
+      overflow:hidden;
+      box-shadow:0 2px 8px rgba(0,0,0,.1);
+    }
+    .mock img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
 
-    /* Forms (opt-in) */
+    /* FORMULAIRES TALLY - OPTIMISÉS */
     .optin{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:16px;padding:18px;box-shadow:0 2px 12px rgba(0,0,0,.05)}
     .optin h3{margin:0 0 8px;font-size:18px}
-    .f{display:grid;gap:10px;margin-top:8px}
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .input, .select{width:100%;padding:12px 14px;border:1px solid #e8e8e8;border-radius:12px;font-size:15px;background:#fff;outline:none;transition:border .2s, box-shadow .2s;box-sizing:border-box;}
-    .input:focus, .select:focus{border-color:#eab0bf;box-shadow:0 0 0 4px rgba(239, 184, 200, .55)}
-    .help{font-size:12px;color:var(--ink-70);margin-top:4px}
-    .consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#494949}
-    .consent input{margin-top:3px}
+    .optin iframe{
+      border-radius:12px;
+      min-height:350px;
+    }
+    .help{font-size:12px;color:var(--ink-70);margin-top:8px}
 
     /* Exit intent modal */
     .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.45);z-index:50;padding:16px}
@@ -93,15 +155,57 @@
     .modal-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
     .x{appearance:none;border:none;background:transparent;font-size:22px;line-height:1;cursor:pointer}
 
-    /* Closing */
-    .closing-visual{height:180px;border-radius:18px;background:#fff;border:1px dashed #c7c7c7;display:flex;align-items:center;justify-content:center;color:#777;margin-bottom:24px}
+    /* CLOSING VISUAL - IMAGE FIXE */
+    .closing-visual{
+      height:180px;
+      border-radius:18px;
+      overflow:hidden;
+      margin-bottom:24px;
+      background:var(--peach-50);
+    }
+    .closing-visual img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
     .list{list-style:none;padding:0;margin:24px 0}
     .list li{padding-left:30px;position:relative;margin:12px 0}
     .list li::before{content:"✅";position:absolute;left:0;top:0}
 
+    /* LIFESTYLE IMAGE - FIXE */
+    .lifestyle-visual{
+      height:180px;
+      border-radius:18px;
+      overflow:hidden;
+      margin-bottom:24px;
+      background:var(--peach-50);
+    }
+    .lifestyle-visual img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
     /* FAQ */
     details{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:16px;margin-bottom:12px}
     summary{cursor:pointer;font-weight:700;margin-bottom:8px}
+
+    /* RESPONSIVE MOBILE */
+    @media(max-width:480px){
+      .section{padding:20px 12px}
+      .hero{padding:30px 12px 20px}
+      .h1{font-size:24px}
+      .h2{font-size:20px}
+      .amazon-trust{font-size:14px;gap:8px}
+      .amazon-trust img{height:22px}
+      .table{margin:0 -12px}
+      th,td{padding:10px 6px;font-size:12px}
+      .optin{padding:14px}
+      .mock{height:180px}
+      .phones{gap:12px}
+    }
+
+    /* Helpers */
     .mt-0{margin-top:0}.mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}.mt-20{margin-top:20px}.mt-24{margin-top:24px}
     .mb-0{margin-bottom:0}.mb-8{margin-bottom:8px}.mb-12{margin-bottom:12px}.mb-16{margin-bottom:16px}.mb-20{margin-bottom:20px}.mb-24{margin-bottom:24px}
   </style>
@@ -111,8 +215,8 @@
 
     <!-- Bloc 1 — HERO -->
     <section class="hero" id="hero">
-      <div class="hero-visual" aria-label="Visuel placeholder">
-        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/hero-bathroom.png?v=1755071265" alt="Salle de bain sereine avec maman en peignoir" width="100%" height="100%" object-fit="cover" border-radius="18px">
+      <div class="hero-visual">
+        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/hero-bathroom.png?v=1755071265" alt="Salle de bain sereine avec maman en peignoir">
       </div>
       <h1 class="h1">💧 ¿Te da miedo ir al baño después del parto?</h1>
       <p class="muted">No estás sola. Esta preocupación es más común de lo que imaginas.</p>
@@ -120,7 +224,7 @@
       <a href="#cta" class="cta" aria-label="Quiero sentir alivio hoy mismo">QUIERO SENTIR ALIVIO HOY MISMO</a>
       <div class="amazon-trust">
         <span>Disponible en</span>
-        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.png?v=1754880883" width="18" height="18" alt="Amazon">
+        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.png?v=1754880883" alt="Amazon">
         <span>• Entrega segura</span>
       </div>
       <div class="trust">
@@ -143,7 +247,7 @@
     <!-- Bloc 3 — Mini historia -->
     <section class="section story" id="historia">
       <div class="thumb">
-        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/story-hand-water.png?v=1755071265" alt="Main utilisant le dispositif Peach" width="100%" height="100%" object-fit="cover" border-radius="14px">
+        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/story-hand-water.png?v=1755071265" alt="Main utilisant le dispositif Peach">
       </div>
       <h2 class="h2">Imagina este momento…</h2>
       <p><em>Era mi segundo día en casa. El bebé dormía, y yo me armaba de valor para ir al baño. Respiré hondo… y en vez del papel doloroso o de esa botella incómoda, abrí el agua de Peach. Un chorro suave, como una caricia… y me di cuenta: no había dolor. Solo alivio. Por primera vez desde el parto, no tenía miedo.</em></p>
@@ -196,15 +300,12 @@
       <a href="#cta" class="cta secondary">Quiero mi alivio ahora</a>
       <div class="amazon-trust">
         <span>Compra segura en</span>
-        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.png?v=1754880883" width="18" height="18" alt="Amazon">
+        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.png?v=1754880883" alt="Amazon">
         <span>• Entrega rápida</span>
       </div>
 
       <!-- ✅ OPT-IN MID-PAGE (Tally iframe) -->
       <div class="optin mt-16" id="optin-mid">
-        <h3 class="h3">🎁 Guía postparto gratuita</h3>
-        <p class="mb-12">Recibe nuestra guía <em>"Primeros días sin miedo + rutina de bienestar suave"</em> directamente por WhatsApp.</p>
-        <!-- Remplace FORM_ID_MID par ton vrai ID Tally -->
         <iframe 
           src="https://tally.so/r/mON6yk?hideTitle=1&transparentBackground=1&alignLeft=1" 
           width="100%" 
@@ -280,23 +381,25 @@
       <p><strong>Acompañamiento diario</strong> con consejos y recordatorios, <strong>frases de aliento</strong> cuando lo necesitas y <strong>rutinas suaves</strong> para tu bienestar.</p>
       <div class="phones">
         <div class="mock">
-          <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/app-screen-1.png?v=1755071264" alt="Écran d'accueil app Peach Care" width="100%" height="100%" object-fit="cover" border-radius="16px">
+          <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/app-screen-1.png?v=1755071264" alt="Écran d'accueil app Peach Care">
         </div>
         <div class="mock">
-          <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/app-screen-2.png?v=1755071264" alt="Écran routines app Peach Care" width="100%" height="100%" object-fit="cover" border-radius="16px">
+          <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/app-screen-2.png?v=1755071264" alt="Écran routines app Peach Care">
         </div>
-       </div>
+      </div>
       <a href="#cta" class="cta">Quiero Peach + App gratuita</a>
       <div class="amazon-trust">
         <span>Disponible en</span>
-        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.png?v=1754880883" width="18" height="18" alt="Amazon">
+        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.png?v=1754880883" alt="Amazon">
         <span>• Entrega rápida</span>
       </div>
     </section>
 
     <!-- Bloc 7 — Solución integral / Lifestyle -->
     <section class="section" id="solucion">
-      <div class="hero-visual" style="height:180px;margin-bottom:24px"><img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/lifestyle-installed.png?v=1755071265" alt="Bidet Peach installé dans salle de bain moderne" width="100%" height="100%" object-fit="cover" border-radius="18px"></div>
+      <div class="lifestyle-visual">
+        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/lifestyle-installed.png?v=1755071265" alt="Bidet Peach installé dans salle de bain moderne">
+      </div>
       <h2 class="h2">Una solución integral pensada para el postparto</h2>
       <p><strong>Enfoque en la suavidad:</strong> limpieza respetuosa cuando necesitas máximo confort.</p>
       <p><strong>Jet suave y controlado:</strong> presión regulable para adaptarse a ti.</p>
@@ -330,7 +433,7 @@
     <!-- Bloc 9 — Closing -->
     <section class="section" id="cta">
       <div class="closing-visual">
-        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/Closing.png?v=1755071265" alt="Maman avec bébé, lumière douce" width="100%" height="100%" object-fit="cover" border-radius="18px">
+        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/Closing.png?v=1755071265" alt="Maman avec bébé, lumière douce">
       </div>
       <h2 class="h2">Es tu momento de decidir</h2>
       <p>Tu cuerpo ha hecho algo extraordinario. Ahora merece cuidados a la altura de este momento tan especial.</p>
@@ -345,14 +448,11 @@
       <a class="cta" href="#buy">QUIERO SENTIR ALIVIO HOY MISMO</a>
       <div class="amazon-trust">
         <span>Compra segura en</span>
-        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.png?v=1754880883" width="18" height="18" alt="Amazon">
+        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.png?v=1754880883" alt="Amazon">
       </div>
 
       <!-- ✅ OPT-IN BAS DE PAGE (Tally iframe) -->
       <div class="optin mt-16" id="optin-bottom">
-        <h3 class="h3">¿Aún dudando?</h3>
-        <p class="mb-12">Llévate nuestra guía postparto "Primeros días sin miedo" por WhatsApp. Decide con calma.</p>
-        <!-- Remplace FORM_ID_BOTTOM par ton vrai ID Tally -->
         <iframe 
           src="https://tally.so/r/mYA1Kv?hideTitle=1&transparentBackground=1&alignLeft=1" 
           width="100%" 
@@ -382,7 +482,6 @@
         <button class="x" aria-label="Cerrar" data-close>&times;</button>
       </div>
       <p class="mt-8">Te regalamos nuestra <strong>guía postparto "Primeros días sin miedo + rutina de bienestar"</strong> antes de que te vayas.</p>
-      <!-- Remplace FORM_ID_EXIT par ton vrai ID Tally -->
       <iframe 
         src="https://tally.so/r/wdyO4V?hideTitle=1&transparentBackground=1&alignLeft=1" 
         width="100%" 

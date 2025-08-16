@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Peach France · Soulagement Post-Partum Sans Contact</title>
+  <meta name="description" content="Peach France – Bidet fixe non électrique pour le post-partum. Hygiène douce sans contact, sans douleur. App Peach Care incluse." />
+  <style>
+    :root{
+      --peach:#FCECDC;      /* rose pêche */
+      --peach-50:#FFFDF9;   /* blanc chaud */
+      --mint:#D9F0DA;       /* vert menthe */
+      --ink:#333333;        /* texte principal */
+      --ink-70:#4F4F4F;
+      --accent:#EFB8C8;     /* variante bouton/cta */
+      --ok:#23A559;         /* check */
+      --no:#D14B4B;         /* cross */
+    }
+    html,body{margin:0;padding:0;background:var(--peach-50);color:var(--ink);font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Ubuntu,"Helvetica Neue",Arial,sans-serif;}
+    img{max-width:100%;display:block}
+    .wrap{max-width:680px;margin:0 auto}
+    .section{padding:30px 16px}
+    .h1{font-size:28px;line-height:1.2;margin:0 0 16px;font-weight:800}
+    .h2{font-size:22px;line-height:1.25;margin:0 0 16px;font-weight:800}
+    .h3{font-size:18px;line-height:1.25;margin:0 0 12px;font-weight:700}
+    p{font-size:16px;line-height:1.55;margin:0 0 16px}
+    .muted{color:var(--ink-70)}
+    .card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+    .cta{display:block;width:100%;text-align:center;background:linear-gradient(135deg, #333333 0%, #4a4a4a 100%);color:#fff;text-decoration:none;font-weight:800;border-radius:50px;padding:16px 20px;border:none;margin:24px 0;box-shadow:0 8px 24px rgba(51, 51, 51, 0.15), 0 2px 8px rgba(51, 51, 51, 0.1);position:relative;overflow:hidden;transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);transform:translateY(0);cursor:pointer;box-sizing:border-box;}
+    .cta:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(51, 51, 51, 0.2), 0 4px 12px rgba(51, 51, 51, 0.15);}    
+    .cta::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);transition:left 0.6s ease;}
+    .cta:hover::before{left:100%;}
+    .cta.secondary{background:linear-gradient(135deg, #EFB8C8 0%, #E8A5B8 100%);color:#2d2d2d;box-shadow:0 8px 24px rgba(239, 184, 200, 0.3), 0 2px 8px rgba(239, 184, 200, 0.2);cursor:pointer;}
+    .cta.secondary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(239, 184, 200, 0.35), 0 4px 12px rgba(239, 184, 200, 0.25);}    
+    .badge{font-size:12px;color:#222;background:var(--mint);display:inline-block;padding:6px 10px;border-radius:999px}
+    .chips{display:flex;gap:8px;flex-wrap:wrap}
+
+    /* HERO */
+    .hero{
+      background:linear-gradient(180deg, var(--peach) 0%, var(--peach-50) 70%);
+      padding:40px 16px 30px;
+      border-bottom:1px solid rgba(0,0,0,.06);
+      overflow:hidden;
+    }
+    .hero-visual{
+      height:220px;
+      border-radius:18px;
+      overflow:hidden;
+      margin-bottom:20px;
+      background:var(--peach-50);
+      width:100%;
+    }
+    .hero-visual img{width:100%;height:100%;object-fit:cover;border-radius:18px}
+
+    /* TRUST */
+    .trust{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center;margin-top:20px}
+    .market-trust{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:12px;font-size:15px;color:var(--ink-70);opacity:0.9}
+    .market-trust img{height:24px;opacity:0.95;filter:saturate(1.1) contrast(1.05)}
+    .market-trust span{font-weight:600}
+    .trust .t{font-size:12px;color:#444;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:999px;padding:8px 12px}
+
+    /* Bubbles */
+    .bubbles{background:linear-gradient(180deg, var(--peach-50) 0%, var(--peach) 100%)}
+    .bubble-list{display:grid;gap:16px}
+    .bubble{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:18px;padding:18px 18px 18px 50px;position:relative}
+    .bubble::before{content:"💭";position:absolute;left:15px;top:15px}
+
+    /* Story */
+    .story .thumb{height:160px;border-radius:14px;overflow:hidden;margin-bottom:24px;background:var(--peach-50)}
+    .story .thumb img{width:100%;height:100%;object-fit:cover}
+    .text-link{color:#2a5bd7;font-weight:700;text-decoration:underline}
+
+    /* Reasons */
+    .reasons{display:grid;gap:20px}
+    .reason{display:grid;grid-template-columns:40px 1fr;gap:16px;align-items:flex-start;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:14px;padding:20px}
+    .reason .ico{font-size:22px;line-height:1.1}
+    .vs{font-size:14px;color:#555;background:var(--peach-50);border:1px dashed #e7d5d5;padding:12px;border-radius:10px;margin-top:12px}
+
+    /* Table */
+    .table{border-radius:14px}
+    table{width:100%;border-collapse:collapse;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:14px;overflow:hidden}
+    th,td{padding:8px 4px;border-bottom:1px solid #f0f0f0;text-align:center;font-size:11px;line-height:1.2;vertical-align:middle}
+    th{background:var(--peach);font-weight:700;font-size:10px;padding:10px 4px}
+    th:first-child{text-align:left;font-size:11px}
+    td:first-child{text-align:left;font-weight:600;font-size:10px;padding:8px 6px}
+    td:nth-child(2){background:rgba(239,184,200,.15);font-weight:700}
+    .check{color:var(--ok);font-weight:900;font-size:10px}
+    .cross{color:var(--no);font-weight:900;font-size:10px}
+
+    /* App */
+    .phones{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px;max-width:400px;margin-left:auto;margin-right:auto}
+    .mock{background:#fff;border-radius:16px;height:200px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+    .mock img{width:100%;height:100%;object-fit:cover}
+
+    /* Optin */
+    .optin{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:16px;padding:18px;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+    .optin h3{margin:0 0 8px;font-size:18px}
+    .optin iframe{border-radius:12px;height:280px;min-height:280px}
+    .help{font-size:12px;color:var(--ink-70);margin-top:8px}
+
+    /* Modal */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.45);z-index:50;padding:16px}
+    .modal.open{display:flex}
+    .modal-card{background:#fff;border-radius:18px;border:1px solid rgba(0,0,0,.06);max-width:520px;width:100%;padding:18px 18px 22px;box-shadow:0 10px 40px rgba(0,0,0,.2)}
+    .modal-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .x{appearance:none;border:none;background:transparent;font-size:22px;line-height:1;cursor:pointer}
+
+    /* Closing */
+    .closing-visual{height:180px;border-radius:18px;overflow:hidden;margin-bottom:24px;background:var(--peach-50)}
+    .closing-visual img{width:100%;height:100%;object-fit:cover}
+    .list{list-style:none;padding:0;margin:24px 0}
+    .list li{padding-left:30px;position:relative;margin:12px 0}
+    .list li::before{content:"✅";position:absolute;left:0;top:0}
+
+    /* Lifestyle */
+    .lifestyle-visual{height:180px;border-radius:18px;overflow:hidden;margin-bottom:24px;background:var(--peach-50)}
+    .lifestyle-visual img{width:100%;height:100%;object-fit:cover}
+
+    /* FAQ */
+    details{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:16px;margin-bottom:12px}
+    summary{cursor:pointer;font-weight:700;margin-bottom:8px}
+
+    /* Responsive */
+    @media(max-width:480px){
+      .section{padding:20px 12px}
+      .hero{padding:30px 12px 20px}
+      .h1{font-size:24px}
+      .h2{font-size:20px}
+      .table{margin:0}
+      th,td{padding:10px 6px;font-size:12px}
+      .optin{padding:14px}
+      .mock{height:180px}
+      .phones{gap:12px}
+    }
+
+    /* Helpers */
+    .mt-0{margin-top:0}.mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}.mt-20{margin-top:20px}.mt-24{margin-top:24px}
+    .mb-0{margin-bottom:0}.mb-8{margin-bottom:8px}.mb-12{margin-bottom:12px}.mb-16{margin-bottom:16px}.mb-20{margin-bottom:20px}.mb-24{margin-bottom:24px}
+  </style>
+</head>
+<body>
+  <main class="wrap" aria-label="Peach France · Page de vente (Mobile)">
+
+    <!-- Bloc 1 — HERO OPTIMISÉ -->
+    <section class="hero" id="hero">
+      <div class="hero-visual">
+        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/hero-bathroom.png?v=1755071265" alt="Salle de bain sereine, maman en peignoir (vue pudique)">
+      </div>
+      <h1 class="h1">💧 Enfin du soulagement après votre épisiotomie</h1>
+      <p class="muted">Cette appréhension à chaque passage aux toilettes... vous n'êtes pas seule à la ressentir.</p>
+      <p><strong>Découvrez la solution que beaucoup de professionnels recommandent :</strong> <em>nettoyage sans contact, sans douleur, toujours prêt à la maison</em>.</p>
+      <a href="#cta" class="cta" aria-label="Je veux du soulagement dès aujourd'hui">OBTENIR MON SOULAGEMENT MAINTENANT</a>
+      <div class="market-trust">
+        <span>Disponible sur</span>
+        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.png?v=1754880883" alt="Amazon">
+        <span>• Livraison rapide</span>
+      </div>
+      <div class="trust">
+        <span class="t">🔒 Paiement sécurisé Amazon</span>
+        <span class="t">🚚 Livraison gratuite</span>
+        <span class="t">↩️ Retour 30 jours</span>
+      </div>
+    </section>
+
+    <!-- Bloc 2 — Connexion émotionnelle RENFORCÉE -->
+    <section class="section bubbles" id="empathie">
+      <div class="bubble-list">
+        <div class="bubble">« Chaque fois que j'allais aux toilettes, mon cœur se serrait d'avance... »</div>
+        <div class="bubble">« Entre le papier qui fait mal et les lingettes qui irritent, j'étais épuisée. »</div>
+        <div class="bubble">« Je voulais juste me sentir propre sans avoir peur de la douleur. »</div>
+      </div>
+      <p class="mt-16"><strong>Ces pensées vous parlent ? Alors cette solution va transformer vos prochains jours.</strong> Simple, douce, et disponible 24h/24 chez vous.</p>
+    </section>
+
+    <!-- Bloc 3 — Mini-histoire AUTHENTIQUE -->
+    <section class="section story" id="histoire">
+      <div class="thumb">
+        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/story-hand-water.png?v=1755071265" alt="Main ouvrant l'eau du dispositif Peach">
+      </div>
+      <h2 class="h2">Le moment qui peut tout changer...</h2>
+      <p><em>J+5 après mon accouchement. Ma sage-femme m'avait dit : "L'eau, c'est ce qu'il y a de plus doux pour l'hygiène post-partum." J'ai découvert Peach en cherchant des solutions. Installation le soir même. Le lendemain matin... Un jet délicat, comme une caresse d'eau tiède. Zéro contact. Zéro douleur. Pour la première fois depuis la naissance, j'ai ressenti du soulagement au lieu de l'appréhension.</em></p>
+      <p>Cette sensation peut être la vôtre dès demain. <a class="text-link" href="#raisons">Voici comment ça fonctionne</a>.</p>
+    </section>
+
+    <!-- Bloc 4 — 5 Raisons HONNÊTES -->
+    <section class="section" id="raisons">
+      <h2 class="h2">Pourquoi Peach peut améliorer votre récupération post‑partum</h2>
+      <div class="reasons">
+        <article class="reason card">
+          <div class="ico">💧</div>
+          <div>
+            <h3 class="h3">Soulagement immédiat par l'eau pure</h3>
+            <p>Le lavage à l'eau est souvent la première recommandation pour l'hygiène post‑partum sans friction. Peach délivre un jet doux et contrôlé qui nettoie avec délicatesse sans aucun contact — exactement ce dont votre corps a besoin pendant la cicatrisation.</p>
+            <p class="vs"><strong>vs. Bouteilles périnéales :</strong> pression qui faiblit, rechargement fréquent. <strong>Peach</strong> : pression constante, toujours prêt.</p>
+          </div>
+        </article>
+        <article class="reason card">
+          <div class="ico">🌿</div>
+          <div>
+            <h3 class="h3">Zéro produit chimique, maximum de douceur</h3>
+            <p>Contrairement aux lingettes qui peuvent contenir alcool et parfums, Peach n'utilise que l'eau de votre robinet. Une approche respectueuse pour votre peau sensible en période de récupération.</p>
+            <p class="vs"><strong>vs. Lingettes :</strong> risque d'irritation selon les composants. <strong>Peach</strong> : que de l'eau, rien d'autre.</p>
+          </div>
+        </article>
+        <article class="reason card">
+          <div class="ico">🩹</div>
+          <div>
+            <h3 class="h3">Favorise une récupération plus sereine</h3>
+            <p>Moins de friction peut signifier moins d'irritation. Maintenir une hygiène douce sans contact direct aide à créer les conditions les plus confortables possible pour votre récupération.</p>
+          </div>
+        </article>
+        <article class="reason card">
+          <div class="ico">🔧</div>
+          <div>
+            <h3 class="h3">Installation simple avec guide détaillé</h3>
+            <p>Notre guide vidéo détaille chaque étape de l'installation. L'installation est conçue pour être accessible. Et si vous n'y arrivez pas ? Retour possible sous 30 jours.</p>
+            <p class="vs"><strong>Support inclus :</strong> guide vidéo + assistance si besoin.</p>
+          </div>
+        </article>
+        <article class="reason card">
+          <div class="ico">🌱</div>
+          <div>
+            <h3 class="h3">Économique et respectueux de vos valeurs</h3>
+            <p>Réduisez vos achats répétés de lingettes et bouteilles. Peach s'intègre discrètement dans votre salle de bain. Un achat pour une utilisation durable.</p>
+          </div>
+        </article>
+      </div>
+      <a href="#cta" class="cta secondary">Je veux essayer cette solution</a>
+      <div class="market-trust">
+        <span>Commande sécurisée sur</span>
+        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.png?v=1754880883" alt="Amazon">
+        <span>• Livraison rapide</span>
+      </div>
+
+      <!-- ✅ OPT-IN MID-PAGE -->
+      <div class="optin mt-16" id="optin-mid">
+        <iframe 
+          src="https://tally.so/r/mON6yk?hideTitle=1&transparentBackground=1&alignLeft=1" 
+          width="100%" 
+          height="280" 
+          frameborder="0" 
+          marginheight="0" 
+          marginwidth="0" 
+          title="Guide post‑partum gratuit">
+        </iframe>
+        <div class="help">Guide pratique + informations d'achat. Vos données restent privées.</div>
+      </div>
+    </section>
+
+    <!-- Bloc 5 — Comparatif HONNÊTE -->
+    <section class="section" id="comparatif">
+      <h2 class="h2">Comparaison objective : Peach vs autres solutions</h2>
+      <div class="table card">
+        <table aria-label="Tableau comparatif">
+          <thead>
+            <tr>
+              <th>Critère</th>
+              <th>🌸 Peach</th>
+              <th>Bouteilles</th>
+              <th>Lingettes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pression de l'eau</td>
+              <td class="check">✅ Constante</td>
+              <td class="cross">❌ Diminue</td>
+              <td class="cross">❌ —</td>
+            </tr>
+            <tr>
+              <td>Sans additifs</td>
+              <td class="check">✅ Eau pure</td>
+              <td>⚠️ Selon marque</td>
+              <td class="cross">❌ Peut contenir alcool</td>
+            </tr>
+            <tr>
+              <td>Disponibilité</td>
+              <td class="check">✅ Toujours prêt</td>
+              <td class="cross">❌ À recharger</td>
+              <td class="cross">❌ À racheter</td>
+            </tr>
+            <tr>
+              <td>Contact avec la peau</td>
+              <td class="check">✅ Aucun</td>
+              <td>⚠️ Minimal</td>
+              <td class="cross">❌ Direct</td>
+            </tr>
+            <tr>
+              <td>Déchets générés</td>
+              <td class="check">✅ Aucun</td>
+              <td class="cross">❌ Bouteilles vides</td>
+              <td class="cross">❌ Lingettes usagées</td>
+            </tr>
+            <tr>
+              <td>Coût à 6 mois</td>
+              <td class="check">✅ Amorti</td>
+              <td class="cross">❌ Coût récurrent</td>
+              <td class="cross">❌ Coût récurrent</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Bloc 6 — App RÉALISTE -->
+    <section class="section" id="app">
+      <div class="chips mb-12"><span class="badge">Incluse sans supplément</span></div>
+      <h2 class="h2">App Peach Care : votre compagne digitale post‑partum</h2>
+      <p><strong>Accompagnement quotidien</strong> avec conseils pratiques et encouragements, <strong>routines bien‑être</strong> adaptées à cette période particulière de votre vie.</p>
+      <div class="phones">
+        <div class="mock"><img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/app-screen-1.png?v=1755071264" alt="Écran d'accueil – Peach Care" /></div>
+        <div class="mock"><img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/app-screen-2.png?v=1755071264" alt="Écran routines – Peach Care" /></div>
+      </div>
+      <a href="#cta" class="cta">J'essaie Peach + App incluse</a>
+      <div class="market-trust">
+        <span>Disponible sur</span>
+        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.png?v=1754880883" alt="Amazon">
+        <span>• Livraison rapide</span>
+      </div>
+    </section>
+
+    <!-- Bloc 7 — Solution RÉALISTE -->
+    <section class="section" id="solution">
+      <div class="lifestyle-visual">
+        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/lifestyle-installed.png?v=1755071265" alt="Bidet Peach installé dans une salle de bain moderne">
+      </div>
+      <h2 class="h2">Une solution pensée pour votre confort post‑partum</h2>
+      <p><strong>Jet doux et contrôlé :</strong> pression réglable pour s'adapter à votre sensibilité du moment.</p>
+      <p><strong>Design discret :</strong> s'intègre naturellement sous votre lunette, disponible quand vous en avez besoin.</p>
+    </section>
+
+    <!-- Bloc 8 — FAQ HONNÊTE -->
+    <section class="section" id="faq">
+      <h2 class="h2">Questions fréquentes et réponses franches</h2>
+      <details class="mt-16">
+        <summary>Puis‑je l'utiliser dès mon retour de maternité ?</summary>
+        <p class="mt-8">L'eau pure est généralement bien tolérée dès les premiers jours. Peach délivre un jet doux, mais consultez votre sage-femme si vous avez des doutes selon votre situation.</p>
+      </details>
+      <details>
+        <summary>Et si je ne réussis pas l'installation ?</summary>
+        <p class="mt-8">Notre guide vidéo détaille chaque étape. L'installation est pensée pour être accessible. Si vous échouez : retour possible sous 30 jours via Amazon.</p>
+      </details>
+      <details>
+        <summary>C'est vraiment hygiénique ? Comment l'entretenir ?</summary>
+        <p class="mt-8">L'eau est naturellement hygiénique. Peach se nettoie comme tout accessoire de salle de bain, avec les produits habituels.</p>
+      </details>
+      <details>
+        <summary>L'investissement est‑il vraiment rentable ?</summary>
+        <p class="mt-8">Comparé au coût des lingettes sur plusieurs mois, oui. Mais l'intérêt principal reste le confort d'usage au quotidien.</p>
+      </details>
+      <details>
+        <summary>Compatible avec tous les WC ?</summary>
+        <p class="mt-8">Compatible avec la plupart des cuvettes standards. En cas de doute, vérifiez les dimensions dans la description produit ou contactez le support.</p>
+      </details>
+    </section>
+
+    <!-- Bloc 9 — Closing AUTHENTIQUE -->
+    <section class="section" id="cta">
+      <div class="closing-visual"><img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/Closing.png?v=1755071265" alt="Maman et bébé, lumière douce" /></div>
+      <h2 class="h2">À vous de décider ce qui vous convient</h2>
+      <p>Votre corps vient d'accomplir quelque chose d'extraordinaire. Cette période de récupération mérite toute votre attention et les meilleurs soins possibles.</p>
+      <ul class="list mt-12">
+        <li>Bidet Peach (hygiène délicate sans contact)</li>
+        <li>App Peach Care incluse</li>
+        <li>Guide d'installation vidéo détaillé</li>
+        <li>Support client disponible</li>
+        <li>Retour possible 30 jours (Amazon)</li>
+        <li>Livraison sécurisée incluse</li>
+      </ul>
+      <a class="cta" href="#buy">ESSAYER PEACH MAINTENANT</a>
+      <div class="market-trust">
+        <span>Commande sécurisée sur</span>
+        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.png?v=1754880883" alt="Amazon">
+      </div>
+
+      <!-- ✅ OPT‑IN BAS DE PAGE -->
+      <div class="optin mt-16" id="optin-bottom">
+        <iframe 
+          src="https://tally.so/r/mYA1Kv?hideTitle=1&transparentBackground=1&alignLeft=1" 
+          width="100%" 
+          height="280" 
+          frameborder="0" 
+          marginheight="0" 
+          marginwidth="0" 
+          title="Guide post-partum">
+        </iframe>
+      </div>
+
+      <div class="trust">
+        <span class="t">🔒 Paiement sécurisé Amazon</span>
+        <span class="t">🚚 Livraison gratuite</span>
+        <span class="t">↩️ Retour 30 jours</span>
+      </div>
+      <p class="muted mt-16" style="font-size:13px">Peach n'est pas un dispositif médical. C'est un allié pour votre bien‑être intime post‑partum.</p>
+    </section>
+
+  </main>
+
+  <!-- ✅ EXIT‑INTENT MODAL -->
+  <div class="modal" id="exitModal" role="dialog" aria-modal="true" aria-labelledby="exitTitle">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3 class="h3" id="exitTitle">Avant de partir... 🎁</h3>
+        <button class="x" aria-label="Fermer" data-close>&times;</button>
+      </div>
+      <p class="mt-8">Recevez notre <strong>guide post‑partum "Premiers jours en douceur"</strong> avec conseils pratiques pour cette période.</p>
+      <iframe 
+        src="https://tally.so/r/wdyO4V?hideTitle=1&transparentBackground=1&alignLeft=1" 
+        width="100%" 
+        height="250" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0" 
+        title="Guide gratuit post-partum">
+      </iframe>
+      <div class="help mt-8">Nous vous enverrons également les informations d'achat quand vous serez prête.</div>
+    </div>
+  </div>
+
+  <script>
+    /* =========
+       CONFIG AMAZON FR
+       ========= */
+    const AMAZON_URL_FR = 'https://www.amazon.fr/dp/B0DSLXPPZK/';
+
+    // Tous les boutons CTA non secondaires pointent vers Amazon FR
+    document.querySelectorAll('.cta:not(.secondary)').forEach(btn => {
+      btn.setAttribute('href', AMAZON_URL_FR);
+      btn.setAttribute('target', '_blank');
+      btn.setAttribute('rel', 'nofollow noopener');
+    });
+
+    /* =========
+       UTMs dans les iframes Tally
+       ========= */
+    function updateTallyIframes() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const utmParams = {};
+      const trackingParams = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid'];
+      trackingParams.forEach(param => { if (urlParams.get(param)) { utmParams[param] = urlParams.get(param); } });
+      utmParams.referrer = document.referrer || 'direct';
+      utmParams.landing_path = window.location.pathname;
+      document.querySelectorAll('iframe[src*="tally.so"]').forEach(iframe => {
+        const currentSrc = iframe.src; const url = new URL(currentSrc);
+        Object.entries(utmParams).forEach(([k,v]) => url.searchParams.set(k,v));
+        if (iframe.closest('#optin-mid')) url.searchParams.set('source_form','mid_page');
+        else if (iframe.closest('#optin-bottom')) url.searchParams.set('source_form','bottom_page');
+        else if (iframe.closest('#exitModal')) url.searchParams.set('source_form','exit_intent');
+        iframe.src = url.toString();
+      });
+    }
+    document.addEventListener('DOMContentLoaded', updateTallyIframes);
+
+    /* =========
+       Exit‑intent desktop + fallback mobile (70% scroll)
+       ========= */
+    const modal = document.getElementById('exitModal');
+    const openModal = () => { modal.classList.add('open'); setTimeout(updateTallyIframes, 100); };
+    const closeModal = () => modal.classList.remove('open');
+    let shown = false;
+    document.addEventListener('mouseleave', (e) => { if (shown) return; if (e.clientY <= 0) { shown = true; openModal(); }});
+    const onScroll = () => {
+      if (shown) return;
+      const scrolled = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+      if (scrolled > 0.7) { shown = true; openModal(); window.removeEventListener('scroll', onScroll); }
+    };
+    window.addEventListener('scroll', onScroll);
+    modal?.addEventListener('click', (e) => { if (e.target === modal || e.target.matches('[data-close]')) closeModal(); });
+
+    /* =========
+       FAQ accordéon + Smooth scroll
+       ========= */
+    document.querySelectorAll('details').forEach(detail => {
+      detail.addEventListener('toggle', function(){ if (this.open) { document.querySelectorAll('details[open]').forEach(d => { if (d!==this) d.open=false; }); } });
+    });
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+  </script>
+</body>
+</html>

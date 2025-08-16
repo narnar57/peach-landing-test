@@ -35,20 +35,49 @@
     .badge{font-size:12px;color:#222;background:var(--mint);display:inline-block;padding:6px 10px;border-radius:999px}
     .chips{display:flex;gap:8px;flex-wrap:wrap}
 
-    /* HERO - IMAGES FIXES */
-    .hero{background:linear-gradient(180deg, var(--peach) 0%, var(--peach-50) 70%);padding:40px 16px 30px;border-bottom:1px solid rgba(0,0,0,.06)}
+    /* HERO - IMAGES FIXES + MODE PAYSAGE OPTIMISÉ */
+    .hero{
+      background:linear-gradient(180deg, var(--peach) 0%, var(--peach-50) 70%);
+      padding:40px 16px 30px;
+      border-bottom:1px solid rgba(0,0,0,.06);
+      overflow:hidden;
+    }
     .hero-visual{
       height:220px;
       border-radius:18px;
       overflow:hidden;
       margin-bottom:20px;
       background:var(--peach-50);
+      width:100%;
+      position:relative;
     }
     .hero-visual img{
       width:100%;
       height:100%;
       object-fit:cover;
       border-radius:18px;
+    }
+
+    /* OPTIMISATION MODE PAYSAGE - Hero image prend plus de largeur */
+    @media screen and (orientation: landscape) and (max-height: 500px) {
+      .hero{
+        padding:20px 8px 15px;
+      }
+      .hero-visual{
+        height:140px;
+        margin-bottom:15px;
+        /* Utilise toute la largeur disponible en mode paysage */
+        width:calc(100% + 16px);
+        margin-left:-8px;
+        border-radius:12px;
+      }
+      .hero-visual img{
+        border-radius:12px;
+        /* Force l'image à prendre toute la largeur en paysage */
+        object-fit:cover;
+        object-position:center;
+      }
+      .h1{font-size:22px}
     }
 
     /* AMAZON TRUST - LOGOS PLUS GROS SUR MOBILE */
@@ -182,21 +211,93 @@
       object-fit:cover;
     }
 
-    /* FORMULAIRES TALLY - OPTIMISÉS */
-    .optin{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:16px;padding:18px;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+    /* FORMULAIRES TALLY - HAUTEUR OPTIMISÉE POUR MOBILE */
+    .optin{
+      background:#fff;
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:16px;
+      padding:18px;
+      box-shadow:0 2px 12px rgba(0,0,0,.05);
+      /* Assure que le contenu est visible */
+      min-height:auto;
+      overflow:visible;
+    }
     .optin h3{margin:0 0 8px;font-size:18px}
     .optin iframe{
       border-radius:12px;
-      min-height:350px;
+      /* HAUTEUR RÉDUITE pour mobile - plus de contenu visible sans scroll */
+      height:240px;
+      min-height:240px;
+      width:100%;
+      border:none;
+      display:block;
     }
     .help{font-size:12px;color:var(--ink-70);margin-top:8px}
 
-    /* Exit intent modal */
+    /* OPTIMISATION MOBILE SPÉCIFIQUE pour les formulaires */
+    @media(max-width:480px){
+      .optin{
+        padding:14px;
+        margin:16px 0;
+      }
+      .optin iframe{
+        /* Hauteur encore plus réduite sur très petits écrans */
+        height:220px;
+        min-height:220px;
+      }
+    }
+
+    /* OPTIMISATION MODE PAYSAGE pour les formulaires */
+    @media screen and (orientation: landscape) and (max-height: 500px) {
+      .optin iframe{
+        /* En mode paysage, hauteur très réduite */
+        height:180px;
+        min-height:180px;
+      }
+      .optin{
+        padding:10px;
+        margin:12px 0;
+      }
+    }
+
+    /* Exit intent modal - OPTIMISÉ AUSSI */
     .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.45);z-index:50;padding:16px}
     .modal.open{display:flex}
-    .modal-card{background:#fff;border-radius:18px;border:1px solid rgba(0,0,0,.06);max-width:520px;width:100%;padding:18px 18px 22px;box-shadow:0 10px 40px rgba(0,0,0,.2)}
+    .modal-card{
+      background:#fff;
+      border-radius:18px;
+      border:1px solid rgba(0,0,0,.06);
+      max-width:520px;
+      width:100%;
+      padding:18px 18px 22px;
+      box-shadow:0 10px 40px rgba(0,0,0,.2);
+      /* Assure que le modal reste dans le viewport */
+      max-height:90vh;
+      overflow-y:auto;
+    }
     .modal-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
     .x{appearance:none;border:none;background:transparent;font-size:22px;line-height:1;cursor:pointer}
+
+    /* Iframe dans le modal - hauteur optimisée */
+    .modal iframe{
+      height:200px;
+      min-height:200px;
+      width:100%;
+      border:none;
+      border-radius:8px;
+    }
+
+    @media(max-width:480px){
+      .modal-card{
+        margin:8px;
+        padding:14px;
+        max-height:85vh;
+      }
+      .modal iframe{
+        height:180px;
+        min-height:180px;
+      }
+    }
 
     /* CLOSING VISUAL - IMAGE FIXE */
     .closing-visual{
@@ -243,7 +344,6 @@
       .amazon-trust img{height:22px}
       .table{margin:0}
       th,td{padding:10px 6px;font-size:12px}
-      .optin{padding:14px}
       .mock{height:180px}
       .phones{gap:12px}
     }
@@ -259,7 +359,7 @@
     <!-- Bloc 1 — HERO -->
     <section class="hero" id="hero">
       <div class="hero-visual">
-        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/hero-bathroom.png?v=1755071265" alt="Salle de bain sereine avec maman en peignoir">
+        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/hero-bathroom.png" alt="Salle de bain sereine avec maman en peignoir">
       </div>
       <h1 class="h1">💧 ¿Te da miedo ir al baño después del parto?</h1>
       <p class="muted">No estás sola. Esta preocupación es más común de lo que imaginas.</p>
@@ -267,7 +367,7 @@
       <a href="#cta" class="cta" aria-label="Quiero sentir alivio hoy mismo">QUIERO SENTIR ALIVIO HOY MISMO</a>
       <div class="amazon-trust">
         <span>Disponible en</span>
-        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.png?v=1754880883" alt="Amazon">
+        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.png" alt="Amazon">
         <span>• Entrega segura</span>
       </div>
       <div class="trust">
@@ -290,7 +390,7 @@
     <!-- Bloc 3 — Mini historia -->
     <section class="section story" id="historia">
       <div class="thumb">
-        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/story-hand-water.png?v=1755071265" alt="Main utilisant le dispositif Peach">
+        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/story-hand-water.png" alt="Main utilisant le dispositif Peach">
       </div>
       <h2 class="h2">Imagina este momento…</h2>
       <p><em>Era mi segundo día en casa. El bebé dormía, y yo me armaba de valor para ir al baño. Respiré hondo… y en vez del papel doloroso o de esa botella incómoda, abrí el agua de Peach. Un chorro suave, como una caricia… y me di cuenta: no había dolor. Solo alivio. Por primera vez desde el parto, no tenía miedo.</em></p>
@@ -343,16 +443,16 @@
       <a href="#cta" class="cta secondary">Quiero mi alivio ahora</a>
       <div class="amazon-trust">
         <span>Compra segura en</span>
-        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.png?v=1754880883" alt="Amazon">
+        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.png" alt="Amazon">
         <span>• Entrega rápida</span>
       </div>
 
-      <!-- ✅ OPT-IN MID-PAGE (Tally iframe) -->
+      <!-- ✅ OPT-IN MID-PAGE (Tally iframe) - HAUTEUR OPTIMISÉE -->
       <div class="optin mt-16" id="optin-mid">
         <iframe 
           src="https://tally.so/r/mON6yk?hideTitle=1&transparentBackground=1&alignLeft=1" 
           width="100%" 
-          height="400" 
+          height="240" 
           frameborder="0" 
           marginheight="0" 
           marginwidth="0" 
@@ -424,16 +524,16 @@
       <p><strong>Acompañamiento diario</strong> con consejos y recordatorios, <strong>frases de aliento</strong> cuando lo necesitas y <strong>rutinas suaves</strong> para tu bienestar.</p>
       <div class="phones">
         <div class="mock">
-          <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/app-screen-1.png?v=1755071264" alt="Écran d'accueil app Peach Care">
+          <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/app-screen-1.png" alt="Écran d'accueil app Peach Care">
         </div>
         <div class="mock">
-          <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/app-screen-2.png?v=1755071264" alt="Écran routines app Peach Care">
+          <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/app-screen-2.png" alt="Écran routines app Peach Care">
         </div>
       </div>
       <a href="#cta" class="cta">Quiero Peach + App gratuita</a>
       <div class="amazon-trust">
         <span>Disponible en</span>
-        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.png?v=1754880883" alt="Amazon">
+        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.png" alt="Amazon">
         <span>• Entrega rápida</span>
       </div>
     </section>
@@ -441,7 +541,7 @@
     <!-- Bloc 7 — Solución integral / Lifestyle -->
     <section class="section" id="solucion">
       <div class="lifestyle-visual">
-        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/lifestyle-installed.png?v=1755071265" alt="Bidet Peach installé dans salle de bain moderne">
+        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/lifestyle-installed.png" alt="Bidet Peach installé dans salle de bain moderne">
       </div>
       <h2 class="h2">Una solución integral pensada para el postparto</h2>
       <p><strong>Enfoque en la suavidad:</strong> limpieza respetuosa cuando necesitas máximo confort.</p>
@@ -476,7 +576,7 @@
     <!-- Bloc 9 — Closing -->
     <section class="section" id="cta">
       <div class="closing-visual">
-        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/Closing.png?v=1755071265" alt="Maman avec bébé, lumière douce">
+        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/Closing.png" alt="Maman avec bébé, lumière douce">
       </div>
       <h2 class="h2">Es tu momento de decidir</h2>
       <p>Tu cuerpo ha hecho algo extraordinario. Ahora merece cuidados a la altura de este momento tan especial.</p>
@@ -491,15 +591,15 @@
       <a class="cta" href="#buy">QUIERO SENTIR ALIVIO HOY MISMO</a>
       <div class="amazon-trust">
         <span>Compra segura en</span>
-        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.png?v=1754880883" alt="Amazon">
+        <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.png" alt="Amazon">
       </div>
 
-      <!-- ✅ OPT-IN BAS DE PAGE (Tally iframe) -->
+      <!-- ✅ OPT-IN BAS DE PAGE (Tally iframe) - HAUTEUR OPTIMISÉE -->
       <div class="optin mt-16" id="optin-bottom">
         <iframe 
           src="https://tally.so/r/mYA1Kv?hideTitle=1&transparentBackground=1&alignLeft=1" 
           width="100%" 
-          height="350" 
+          height="240" 
           frameborder="0" 
           marginheight="0" 
           marginwidth="0" 
@@ -517,7 +617,7 @@
 
   </main>
 
-  <!-- ✅ EXIT-INTENT MODAL (Tally iframe) -->
+  <!-- ✅ EXIT-INTENT MODAL (Tally iframe) - HAUTEUR OPTIMISÉE -->
   <div class="modal" id="exitModal" role="dialog" aria-modal="true" aria-labelledby="exitTitle">
     <div class="modal-card">
       <div class="modal-head">
@@ -526,13 +626,12 @@
       <iframe 
         src="https://tally.so/r/wdyO4V?hideTitle=1&transparentBackground=1&alignLeft=1" 
         width="100%" 
-        height="300" 
+        height="200" 
         frameborder="0" 
         marginheight="0" 
         marginwidth="0" 
         title="Formulaire exit-intent">
       </iframe>
-      <div class="help mt-8">Te enviaremos también el enlace de Amazon para comprar cuando estés lista.</div>
     </div>
   </div>
 

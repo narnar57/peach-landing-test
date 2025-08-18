@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Peach France · Pourquoi les jeunes mamans abandonnent les lingettes</title>
+  <meta name="description" content="Découvrez pourquoi de plus en plus de jeunes mamans choisissent l'eau plutôt que les lingettes après l'accouchement. La solution douce et naturelle pour retrouver confort et sérénité." />
+  <style>
+    :root{
+      --peach:#FCECDC;      /* rose pêche */
+      --peach-50:#FFFDF9;   /* blanc chaud */
+      --mint:#D9F0DA;       /* vert menthe */
+      --ink:#333333;        /* texte principal */
+      --ink-70:#4F4F4F;
+      --accent:#EFB8C8;     /* variante bouton/cta */
+      --ok:#23A559;         /* check */
+      --no:#D14B4B;         /* cross */
+    }
+    html,body{margin:0;padding:0;background:var(--peach-50);color:var(--ink);font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Ubuntu,"Helvetica Neue",Arial,sans-serif;line-height:1.6;}
+    img{max-width:100%;display:block}
+    .wrap{max-width:720px;margin:0 auto}
+    .section{padding:40px 20px}
+    .h1{font-size:32px;line-height:1.15;margin:0 0 20px;font-weight:800;color:var(--ink)}
+    .h2{font-size:26px;line-height:1.2;margin:32px 0 16px;font-weight:800;color:var(--ink)}
+    .h3{font-size:20px;line-height:1.25;margin:24px 0 12px;font-weight:700;color:var(--ink)}
+    .h4{font-size:18px;line-height:1.3;margin:20px 0 10px;font-weight:600;color:var(--ink)}
+    p{font-size:17px;line-height:1.65;margin:0 0 18px;color:var(--ink)}
+    .lead{font-size:19px;color:var(--ink-70);font-style:italic;margin:0 0 24px}
+    .muted{color:var(--ink-70)}
+    .card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,.08);padding:24px;margin:20px 0}
+    .cta{display:block;width:100%;text-align:center;background:linear-gradient(135deg, #EFB8C8 0%, #E8A5B8 100%);color:#2d2d2d;text-decoration:none;font-weight:800;border-radius:50px;padding:18px 24px;border:none;margin:32px 0;box-shadow:0 8px 24px rgba(239, 184, 200, 0.3), 0 2px 8px rgba(239, 184, 200, 0.2);position:relative;overflow:hidden;transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);transform:translateY(0);cursor:pointer;box-sizing:border-box;font-size:17px;}
+    .cta:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(239, 184, 200, 0.35), 0 4px 12px rgba(239, 184, 200, 0.25);}
+    .cta::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);transition:left 0.6s ease;}
+    .cta:hover::before{left:100%;}
+    .cta.secondary{background:#fff;color:#333;border:2px solid var(--mint);box-shadow:0 4px 16px rgba(0,0,0,0.08);}
+    .cta.secondary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.12);border-color:var(--accent);}
+
+    /* Sticky CTA Mobile */
+    .sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid var(--accent);padding:12px 16px;box-shadow:0 -4px 20px rgba(0,0,0,0.15);z-index:100;transform:translateY(100%);transition:transform 0.3s ease;display:none;}
+    .sticky-cta.show{transform:translateY(0);display:block;}
+    .sticky-cta .cta{margin:0;padding:14px 20px;font-size:16px;}
+    .sticky-reassurance{font-size:12px;text-align:center;color:var(--ink-70);margin-top:8px;}
+
+    /* Header article style */
+    .article-header{background:linear-gradient(180deg, var(--peach) 0%, var(--peach-50) 100%);text-align:center;padding:60px 20px 40px}
+    .article-meta{font-size:14px;color:var(--ink-70);margin-bottom:16px;text-transform:uppercase;letter-spacing:0.5px}
+    .article-title{font-size:28px;line-height:1.2;margin:0 0 16px;font-weight:800;max-width:600px;margin-left:auto;margin-right:auto}
+    .article-subtitle{font-size:18px;color:var(--ink-70);font-style:italic;max-width:500px;margin:0 auto 24px}
+
+    /* Article content */
+    .article-content{max-width:680px;margin:0 auto;padding:0 20px}
+    .article-image{width:100%;height:300px;border-radius:16px;object-fit:cover;margin:24px 0;box-shadow:0 8px 32px rgba(0,0,0,0.12)}
+    .highlight{background:var(--peach);padding:24px;border-radius:12px;border-left:4px solid var(--accent);margin:24px 0}
+    .stats{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:20px;margin:24px 0;text-align:center}
+    .stat-number{font-size:32px;font-weight:800;color:var(--accent);display:block}
+
+    /* Comparison table */
+    .comparison{margin:32px 0}
+    .comparison-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+    .comparison-table th,.comparison-table td{padding:16px;text-align:left;border-bottom:1px solid #f0f0f0}
+    .comparison-table th{background:var(--peach);font-weight:700;font-size:16px}
+    .comparison-table td{font-size:15px}
+    .comparison-table .peach-col{background:rgba(239,184,200,.1);font-weight:600}
+    .check{color:var(--ok);font-weight:900}
+    .cross{color:var(--no);font-weight:900}
+    .warning{color:#e67e22;font-weight:900}
+
+    /* Lists */
+    .benefits-list{list-style:none;padding:0;margin:24px 0}
+    .benefits-list li{padding:12px 0 12px 40px;position:relative;font-size:16px;line-height:1.5}
+    .benefits-list li::before{content:"✓";position:absolute;left:0;top:12px;color:var(--ok);font-weight:900;font-size:18px}
+    .problems-list{list-style:none;padding:0;margin:24px 0}
+    .problems-list li{padding:12px 0 12px 40px;position:relative;font-size:16px;line-height:1.5;color:var(--ink-70)}
+    .problems-list li::before{content:"→";position:absolute;left:0;top:12px;color:var(--no);font-weight:900;font-size:18px}
+
+    /* Trust indicators */
+    .trust-section{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:24px;margin:32px 0;text-align:center}
+    .trust-badges{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+    .trust-badge{font-size:13px;background:var(--mint);color:#222;padding:8px 12px;border-radius:20px;border:1px solid rgba(0,0,0,.06)}
+
+    /* Amazon integration */
+    .amazon-box{background:linear-gradient(135deg, #ff9500 0%, #ff7b00 100%);color:#fff;border-radius:16px;padding:24px;margin:32px 0;text-align:center}
+    .amazon-logo{height:24px;margin:0 auto 12px}
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .article-title{font-size:24px}
+      .h1{font-size:28px}
+      .h2{font-size:22px}
+      .section{padding:24px 16px}
+      .comparison-table th,.comparison-table td{padding:12px 8px;font-size:14px}
+      .trust-badges{flex-direction:column;align-items:center}
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    
+    <!-- Article Header -->
+    <header class="article-header">
+      <div class="article-meta">📰 Advertorial</div>
+      <h1 class="article-title">Pourquoi de plus en plus de jeunes mamans abandonnent les lingettes après l'accouchement…</h1>
+      <p class="article-subtitle">(Et ce qu'elles choisissent à la place pour retrouver confort et sérénité)</p>
+    </header>
+
+    <!-- Article Content -->
+    <article class="article-content">
+      
+      <h2 class="h2">Le quotidien que personne n'ose raconter</h2>
+      <p>Si vous êtes une jeune maman, vous savez déjà : après l'accouchement, chaque passage aux toilettes peut devenir une appréhension. La cicatrice, la sensibilité, la peur de la douleur… Rien de glamour, mais tellement vrai.</p>
+      <p>Et pourtant, ce sujet est rarement abordé hors des couloirs de maternité.</p>
+
+      <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/hero-bathroom.png?v=1755071265" alt="Moment de sérénité dans une salle de bain" class="article-image">
+
+      <h2 class="h2">L'erreur la plus répandue : croire que le papier ou les lingettes suffisent</h2>
+      <p>Par réflexe, beaucoup utilisent encore du papier toilette ou des lingettes. Résultat ?</p>
+      
+      <ul class="problems-list">
+        <li>Frottement douloureux</li>
+        <li>Sensation d'agression sur une zone déjà fragilisée</li>
+        <li>Déchets jetables qui s'accumulent</li>
+      </ul>
+      
+      <p><strong>➡️ Bref : une solution ni douce, ni durable.</strong></p>
+
+      <h2 class="h2">L'alternative la plus naturelle au monde : l'eau</h2>
+      <p>Depuis des siècles, l'eau est considérée comme la manière la plus douce et la plus hygiénique de nettoyer. <strong>D'ailleurs, plus des deux tiers de la population mondiale utilise autre chose que du papier pour se nettoyer.</strong></p>
+      
+      <div class="stats">
+        <span class="stat-number">+66%</span>
+        <p>de la population mondiale privilégie l'eau au papier toilette</p>
+      </div>
+
+      <ul class="benefits-list">
+        <li>Pas de produits chimiques</li>
+        <li>Pas d'irritations</li>
+        <li>Une fraîcheur immédiate</li>
+      </ul>
+
+      <div class="highlight">
+        <p><strong>80% des sages-femmes recommandent le lavage à l'eau pour favoriser la cicatrisation et réduire l'inconfort post-partum.</strong> Cette méthode est d'ailleurs mentionnée dans les guides de sortie de maternité des principaux hôpitaux français.</p>
+      </div>
+
+      <h2 class="h2">Ce que certaines mamans ont découvert à la maternité…</h2>
+      <p>Dans les couloirs des maternités, une conversation revient souvent : <em>"Comment font les autres pays pour éviter cette douleur ?"</em></p>
+      <p>C'est là qu'une révélation surgit : <strong>dans de nombreux pays, l'eau n'est pas une option, c'est LA norme.</strong> En Italie, en Argentine, au Japon… les femmes n'imaginent même pas se passer de cette douceur.</p>
+      <p>Mais comment faire chez nous, en France, sans rénovation ni installation complexe ?</p>
+
+      <h2 class="h2">Là où les bouteilles périnéales déçoivent</h2>
+      <p>Ces petites bouteilles qu'on presse soi-même semblent pratiques… mais la réalité est souvent différente :</p>
+      
+      <ul class="problems-list">
+        <li>Jet trop faible ou irrégulier</li>
+        <li>Plastique qui garde une odeur</li>
+        <li>Obligation de les remplir à chaque passage</li>
+        <li>Capacité limitée</li>
+      </ul>
+      
+      <p><strong>Résultat :</strong> beaucoup de mamans abandonnent rapidement.</p>
+
+      <h2 class="h2">La réponse était plus simple qu'on ne le pensait</h2>
+      <p>C'est ici qu'intervient <strong>Peach</strong> : un bidet fixe, élégant, sans électricité, qui s'installe sous vos toilettes en quelques minutes. <em>(Oui, vraiment quelques minutes – même si vous n'êtes pas bricoleuse.)</em></p>
+
+      <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/lifestyle-installed.png?v=1755071265" alt="Bidet Peach installé dans une salle de bain moderne" class="article-image">
+
+      <p>Contrairement aux bouteilles <em>(qui perdent leur pression et laissent des odeurs)</em> :</p>
+      <ul class="benefits-list">
+        <li>Jet doux et constant, sans effort</li>
+        <li>Toujours prêt – pas besoin de remplir ou transporter</li>
+        <li>Design discret, intégré dans la salle de bain <em>(vos invités ne remarqueront même pas)</em></li>
+        <li>Zéro odeur, zéro produit chimique, zéro déchet</li>
+        <li>Installation simple – si vous savez visser un bouchon, vous y arriverez</li>
+      </ul>
+
+      <p><strong>En un mot : la caresse de l'eau, toujours disponible.</strong></p>
+
+      <!-- Web App Section -->
+      <div class="card" style="background:linear-gradient(135deg, var(--peach) 0%, var(--peach-50) 100%);border:2px solid var(--accent)">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+          <span style="font-size:24px">📱</span>
+          <h3 class="h3" style="margin:0;color:var(--ink)">Peach Care App - Incluse gratuitement</h3>
+        </div>
+        <p style="margin:0 0 12px"><strong>Votre accompagnement digital post-partum :</strong></p>
+        <ul class="benefits-list" style="margin:12px 0">
+          <li>Conseils pratiques adaptés à votre récupération</li>
+          <li>Messages d'encouragement quotidiens</li>
+          <li>Routines bien-être personnalisées</li>
+          <li>Suivi de votre progression</li>
+        </ul>
+        <p style="margin:12px 0 0;font-style:italic;color:var(--ink-70)">
+          <em>Parce que prendre soin de soi, c'est aussi dans la tête. L'app vous accompagne jour après jour.</em>
+        </p>
+      </div>
+
+      <h2 class="h2">Imaginez la différence…</h2>
+      <div class="highlight">
+        <p><em>Fermez les yeux et visualisez : Vous rentrez de la maternité. Vous appréhendez d'aller aux toilettes. Mais au lieu de tendre la main vers du papier… Un simple geste, un jet d'eau douce, et le soulagement est immédiat. Pas de douleur. Pas de crainte. Juste un moment de fraîcheur et de réconfort.</em></p>
+      </div>
+
+      <h2 class="h2">Pourquoi cela compte vraiment</h2>
+      <ul class="benefits-list">
+        <li>Parce que chaque petit geste de douceur accélère la confiance dans son corps</li>
+        <li>Parce que l'intimité mérite plus que du papier jetable</li>
+        <li>Parce que vous avez déjà assez de choses à gérer, inutile d'ajouter des bouteilles à remplir</li>
+        <li>Parce qu'un accompagnement bienveillant fait toute la différence dans la récupération</li>
+      </ul>
+
+      <div class="highlight">
+        <p><strong>À propos de l'hygiène :</strong> Contrairement aux idées reçues, l'eau est plus hygiénique que le papier. Les résidus sont éliminés plutôt qu'étalés, et aucun contact direct n'est nécessaire. <em>Nettoyage ? Aussi simple qu'essuyer un lavabo.</em></p>
+      </div>
+
+      <!-- Comparison Table -->
+      <h2 class="h2">Comparatif rapide</h2>
+      <div class="comparison">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Critère</th>
+              <th>Lingettes / Papier</th>
+              <th>Bouteille périnéale</th>
+              <th class="peach-col">🌸 Peach</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Confort</strong></td>
+              <td class="cross">❌ Douleur/frottement</td>
+              <td class="warning">⚠️ Jet faible / irrégulier</td>
+              <td class="check">✅ Jet doux, sans contact</td>
+            </tr>
+            <tr>
+              <td><strong>Praticité</strong></td>
+              <td class="cross">❌ Jetables, peu hygiéniques</td>
+              <td class="warning">⚠️ À remplir à chaque fois</td>
+              <td class="check">✅ Toujours prêt</td>
+            </tr>
+            <tr>
+              <td><strong>Esthétique</strong></td>
+              <td class="cross">❌ Aucun</td>
+              <td class="cross">❌ Plastique visible</td>
+              <td class="check">✅ Design épuré</td>
+            </tr>
+            <tr>
+              <td><strong>Écologie</strong></td>
+              <td class="cross">❌ Déchets jetables</td>
+              <td class="warning">⚠️ Plastique à vie</td>
+              <td class="check">✅ Durable, sans produit</td>
+            </tr>
+            <tr>
+              <td><strong>Accompagnement</strong></td>
+              <td class="cross">❌ Aucun</td>
+              <td class="cross">❌ Aucun</td>
+              <td class="check">✅ App gratuite incluse</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Trust Section -->
+      <div class="trust-section">
+        <h3 class="h3">Douceur + Sérénité dès maintenant</h3>
+        <p><strong>Votre corps a donné la vie.<br>Votre intimité mérite le meilleur.</strong></p>
+        
+        <a href="https://amazon.fr/peach-bidet" class="cta" target="_blank" rel="nofollow noopener">
+          🌸 S'offrir ce soulagement immédiat sur <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.svg" alt="Amazon" style="height:18px;display:inline;vertical-align:middle;margin-left:4px">
+        </a>
+        <div style="font-size:13px;text-align:center;color:var(--ink-70);margin-top:8px">
+          ✓ Livraison Gratuite • ✓ 30 jours garantis • ✓ Votre confort n'attend pas
+        </div>
+
+        <div class="trust-badges">
+          <span class="trust-badge">🔒 Paiement sécurisé</span>
+          <span class="trust-badge">🚚 Livraison gratuite</span>
+          <span class="trust-badge">↩️ Garantie <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.svg" alt="Amazon" style="height:12px;display:inline;vertical-align:middle;margin-left:2px"></span>
+        </div>
+      </div>
+
+      <!-- Lead Magnet Opt-in -->
+      <div class="trust-section">
+        <p style="text-align:center;font-style:italic;color:var(--ink-70);margin:0 0 16px">
+          <em>Ou bien inscrivez-vous ici pour recevoir gratuitement une mini-routine post-partum et découvrir comment mieux prendre soin de vous chaque jour.</em>
+        </p>
+        
+        <!-- Tally iframe - Remplacez FORM_ID par votre vrai ID Tally -->
+        <iframe 
+          src="https://tally.so/r/FORM_ID?hideTitle=1&transparentBackground=1&alignLeft=1" 
+          width="100%" 
+          height="400" 
+          frameborder="0" 
+          marginheight="0" 
+          marginwidth="0" 
+          title="Formulaire mini-routine postpartum"
+          style="border-radius:12px;">
+        </iframe>
+        
+        <div style="font-size:13px;color:var(--ink-70);text-align:center;margin-top:12px">
+          <em>Nous ne partageons jamais vos données. Lien Amazon inclus dans le guide.</em>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <h2 class="h2">FAQ – Réponses aux questions fréquentes</h2>
+      
+      <div class="card">
+        <h4 class="h4">Est-ce compliqué à installer ?</h4>
+        <p>Non, cela prend quelques minutes, sans électricité ni travaux.</p>
+      </div>
+
+      <div class="card">
+        <h4 class="h4">Est-ce que ça fait mal ?</h4>
+        <p>Au contraire : le jet est doux, précis et réglable.</p>
+      </div>
+
+      <div class="card">
+        <h4 class="h4">Et si je préfère rester discrète ?</h4>
+        <p>Le design est épuré et se fond dans votre salle de bain.</p>
+      </div>
+
+      <!-- Conclusion -->
+      <h2 class="h2">Conclusion</h2>
+      <p>Une page de magazine ne suffira jamais à décrire le soulagement d'un jet d'eau douce quand tout semble douloureux.</p>
+      <p>Mais une chose est sûre : <strong>des milliers de femmes dans le monde choisissent déjà l'eau plutôt que le papier</strong>.</p>
+      
+      <div class="highlight">
+        <p><strong>Pourquoi pas vous, aujourd'hui ?</strong></p>
+      </div>
+
+      <!-- Final CTA -->
+      <div class="amazon-box">
+        <h3 style="color:#fff;margin:0 0 16px">Disponible sur <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.svg" alt="Amazon" style="height:24px;display:inline;vertical-align:middle;margin-left:8px;filter:brightness(0) invert(1)"></h3>
+        <a href="https://amazon.fr/peach-bidet" class="cta secondary" target="_blank" rel="nofollow noopener" style="background:#fff;color:#333;margin:0;border:none">
+          🌸 Essayer Peach maintenant sur <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.svg" alt="Amazon" style="height:18px;display:inline;vertical-align:middle;margin-left:4px">
+        </a>
+        <p style="margin:16px 0 0;font-size:14px;opacity:0.9">✓ Livraison gratuite • ✓ Garantie constructeur • ✓ Votre sérénité commence aujourd'hui</p>
+      </div>
+
+      <!-- Optional Lead Magnet -->
+      <div class="trust-section" style="margin-bottom:80px">
+        <h3 class="h3">🎁 Bonus gratuit</h3>
+        <p>Inscrivez-vous ici pour recevoir gratuitement une mini-routine post-partum et découvrir comment mieux prendre soin de vous chaque jour.</p>
+        <div style="background:var(--peach);padding:16px;border-radius:12px;margin-top:16px">
+          <p style="margin:0;font-size:15px;text-align:center;color:var(--ink-70)">
+            <em>📧 Formulaire d'inscription - Intégrez ici votre outil de capture d'emails</em>
+          </p>
+        </div>
+      </div>
+
+    </article>
+
+  </main>
+
+  <!-- Sticky CTA Mobile -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="https://amazon.fr/peach-bidet" class="cta" target="_blank" rel="nofollow noopener">
+      Offrez-vous ce réconfort sur <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/amazon-logo.svg" alt="Amazon" style="height:16px;display:inline;vertical-align:middle;margin-left:4px">
+    </a>
+    <div class="sticky-reassurance">✓ Livraison Gratuite • ✓ Votre confort n'attend pas</div>
+  </div>
+
+  <script>
+    // Sticky CTA Mobile Logic
+    const stickyCta = document.getElementById('stickyCta');
+    let stickyShown = false;
+
+    function handleStickyScroll() {
+      const scrollPercent = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+      
+      // Masquer la sticky si on est dans les 10% finaux (zone des CTA finaux)
+      if (scrollPercent > 0.9) {
+        stickyCta.classList.remove('show');
+        stickyShown = false;
+        return;
+      }
+      
+      if (scrollPercent > 0.65 && !stickyShown) {
+        stickyCta.classList.add('show');
+        stickyShown = true;
+      } else if (scrollPercent < 0.6 && stickyShown) {
+        stickyCta.classList.remove('show');
+        stickyShown = false;
+      }
+    }
+
+    // Only activate on mobile/tablet
+    if (window.innerWidth <= 1024) {
+      window.addEventListener('scroll', handleStickyScroll);
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1024) {
+          stickyCta.classList.remove('show');
+          window.removeEventListener('scroll', handleStickyScroll);
+        }
+      });
+    }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Update Amazon links with tracking
+    const AMAZON_URL = 'https://www.amazon.fr/Bidet-Fixe-Toilette-Intime-Post-Partum/dp/B0DSLXPPZK/?_encoding=UTF8&pd_rd_w=taDbH&content-id=amzn1.sym.ed609bc0-3fc8-4ad6-8ee8-bb6ed6908861%3Aamzn1.symc.fc11ad14-99c1-406b-aa77-051d0ba1aade&pf_rd_p=ed609bc0-3fc8-4ad6-8ee8-bb6ed6908861&pf_rd_r=6BERT826DW07KN2XQMCK&pd_rd_wg=nbBHn&pd_rd_r=0fa16703-c795-4da7-8330-ace9a60bae03&ref_=pd_hp_d_atf_ci_mcx_mr_ca_hp_atf_d'
+    
+    document.querySelectorAll('a[href*="amazon"]').forEach(link => {
+      link.href = AMAZON_URL;
+      
+      // Add tracking parameters if needed
+      const url = new URL(link.href);
+      url.searchParams.set('utm_source', 'advertorial');
+      url.searchParams.set('utm_medium', 'blog');
+      url.searchParams.set('utm_campaign', 'postpartum_fr');
+      
+      link.href = url.toString();
+    });
+  </script>
+
+</body>
+</html>

@@ -159,6 +159,40 @@
       border-color:var(--accent);
     }
 
+    /* Amazon logo inline styles */
+    .amazon-logo-inline {
+      height: 18px;
+      width: auto;
+      display: inline;
+      vertical-align: middle;
+      margin-left: 4px;
+    }
+
+    .amazon-logo-header {
+      height: 24px;
+      width: auto;
+      display: inline;
+      vertical-align: middle;
+      margin-left: 8px;
+      filter: brightness(0) invert(1);
+    }
+
+    .amazon-logo-small {
+      height: 12px;
+      width: auto;
+      display: inline;
+      vertical-align: middle;
+      margin-left: 2px;
+    }
+
+    .amazon-logo-sticky {
+      height: 16px;
+      width: auto;
+      display: inline;
+      vertical-align: middle;
+      margin-left: 4px;
+    }
+
     /* Sticky CTA Mobile */
     .sticky-cta{
       position:fixed;
@@ -403,11 +437,6 @@
       margin:32px 0;
       text-align:center;
     }
-    
-    .amazon-logo {
-  height: clamp(20px, 5vw, 28px);
-  margin: 0 auto 16px;
-    }
 
     /* Responsive iframe */
     iframe{
@@ -447,12 +476,6 @@
         color:var(--ink-70);
         margin-top:8px;
         font-style:italic;
-      }
-      
-      /* Amazon logo sizing on mobile */
-      .cta img,
-      .amazon-box img{
-        height:clamp(14px, 3vw, 18px);
       }
       
       /* Better spacing for mobile */
@@ -562,7 +585,7 @@
       <p>Si eres una madre joven, ya lo sabes: después del parto, cada ida al baño puede convertirse en una preocupación. La cicatriz, la sensibilidad, el miedo al dolor… Nada glamoroso, pero tan real.</p>
       <p>Y sin embargo, este tema rara vez se aborda fuera de los pasillos de la maternidad.</p>
 
-      <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/salle_de_bain_advertorial.png?v=1755371772" alt="Momento de serenidad en un baño" class="article-image">
+      <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/salle_de_bain_advertorial.png?v=1755371772" alt="Momento de serenidad en un baño" class="article-image" width="680" height="300">
 
       <h2 class="h2">El error más extendido: creer que el papel o las toallitas son suficientes</h2>
       <p>Por reflejo, muchas siguen usando papel higiénico o toallitas. ¿El resultado?</p>
@@ -611,9 +634,9 @@
       <p><strong>Resultado:</strong> muchas madres las abandonan rápidamente.</p>
 
       <h2 class="h2">La respuesta era más simple de lo que pensábamos</h2>
-      <p>Aquí es donde entra <strong>Peach</strong>: un bidé fijo, elegante, sin electricidad, que se installa bajo vuestro inodoro en pocos minutos. <em>(Sí, realmente unos minutos – incluso si no sois manitas.)</em></p>
+      <p>Aquí es donde entra <strong>Peach</strong>: un bidé fijo, elegante, sin electricidad, que se instala bajo vuestro inodoro en pocos minutos. <em>(Sí, realmente unos minutos – incluso si no sois manitas.)</em></p>
 
-      <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/bidet_installe_advertorial.png?v=1755739794" alt="Bidé Peach instalado en un baño moderno" class="article-image">
+      <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/bidet_installe_advertorial.png?v=1755739794" alt="Bidé Peach instalado en un baño moderno" class="article-image" width="680" height="300">
 
       <p>A diferencia de las botellas <em>(que pierden presión y dejan olores)</em>:</p>
       <ul class="benefits-list">
@@ -714,7 +737,7 @@
         <p><strong>Vuestro cuerpo ha dado la vida.<br>Vuestra intimidad merece lo mejor.</strong></p>
         
         <a href="https://amazon.es/peach-bidet" class="cta" target="_blank" rel="nofollow noopener">
-          🌸 Regalarse este alivio inmediato en <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/logo_amazon.png?v=1755740268" alt="Amazon" style="height:18px;display:inline;vertical-align:middle;margin-left:4px">
+          🌸 Regalarse este alivio inmediato en <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/logo_amazon.png?v=1755740268" alt="Amazon" class="amazon-logo-inline" width="60" height="18">
         </a>
         <div style="font-size:13px;text-align:center;color:var(--ink-70);margin-top:8px">
           ✓ Envío Gratuito • ✓ 30 días garantizados • ✓ Vuestra comodidad no espera
@@ -723,7 +746,7 @@
         <div class="trust-badges">
           <span class="trust-badge">🔒 Pago seguro</span>
           <span class="trust-badge">🚚 Envío gratuito</span>
-          <span class="trust-badge">↩️ Garantía <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/logo_amazon.png?v=1755740268" alt="Amazon" style="height:12px;display:inline;vertical-align:middle;margin-left:2px"></span>
+          <span class="trust-badge">↩️ Garantía <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/logo_amazon.png?v=1755740268" alt="Amazon" class="amazon-logo-small" width="40" height="12"></span>
         </div>
       </div>
 
@@ -781,9 +804,9 @@
 
       <!-- Final CTA -->
       <div class="amazon-box">
-        <h3 style="color:#fff;margin:0 0 16px">Disponible en <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/logo_amazon.png?v=1755740268" alt="Amazon" style="height:24px;display:inline;vertical-align:middle;margin-left:8px;filter:brightness(0) invert(1)"></h3>
+        <h3 style="color:#fff;margin:0 0 16px">Disponible en <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/logo_amazon.png?v=1755740268" alt="Amazon" class="amazon-logo-header" width="80" height="24"></h3>
         <a href="https://amazon.es/peach-bidet" class="cta secondary" target="_blank" rel="nofollow noopener" style="background:#fff;color:#333;margin:0;border:none">
-          🌸 Probar Peach ahora en <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/logo_amazon.png?v=1755740268" alt="Amazon" style="height:18px;display:inline;vertical-align:middle;margin-left:4px">
+          🌸 Probar Peach ahora en <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/logo_amazon.png?v=1755740268" alt="Amazon" class="amazon-logo-inline" width="60" height="18">
         </a>
         <p style="margin:16px 0 0;font-size:14px;opacity:0.9">✓ Envío gratuito • ✓ Garantía del fabricante • ✓ Vuestra serenidad empieza hoy</p>
       </div>
@@ -811,7 +834,7 @@
   <!-- Sticky CTA Mobile -->
   <div class="sticky-cta" id="stickyCta">
     <a href="https://amazon.es/peach-bidet" class="cta" target="_blank" rel="nofollow noopener">
-      Regalarte esta comodidad en <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/logo_amazon.png?v=1755740268" alt="Amazon" style="height:16px;display:inline;vertical-align:middle;margin-left:4px">
+      Regalarte esta comodidad en <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/logo_amazon.png?v=1755740268" alt="Amazon" class="amazon-logo-sticky" width="50" height="16">
     </a>
     <div class="sticky-reassurance">✓ Envío Gratuito • ✓ Vuestra comodidad no espera</div>
   </div>
@@ -843,7 +866,7 @@
     // Solo activar en móvil/tablet
     if (window.innerWidth <= 1024) {
       window.addEventListener('scroll', handleStickyScroll);
-      window.addEventListener('resize', () => {
+      window.addEventListener('resize', function() {
         if (window.innerWidth > 1024) {
           stickyCta.classList.remove('show');
           window.removeEventListener('scroll', handleStickyScroll);
@@ -852,7 +875,7 @@
     }
 
     // Desplazamiento suave para enlaces de ancla
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
       anchor.addEventListener('click', function (e) {
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -868,7 +891,7 @@
     // Actualizar enlaces de Amazon con seguimiento
     const AMAZON_URL = 'https://www.amazon.es/Bidet-Fijo-Inodoro-Intimo-Post-Parto/dp/B0DSLXPPZK/?_encoding=UTF8&pd_rd_w=taDbH&content-id=amzn1.sym.ed609bc0-3fc8-4ad6-8ee8-bb6ed6908861%3Aamzn1.symc.fc11ad14-99c1-406b-aa77-051d0ba1aade&pf_rd_p=ed609bc0-3fc8-4ad6-8ee8-bb6ed6908861&pf_rd_r=6BERT826DW07KN2XQMCK&pd_rd_wg=nbBHn&pd_rd_r=0fa16703-c795-4da7-8330-ace9a60bae03&ref_=pd_hp_d_atf_ci_mcx_mr_ca_hp_atf_d'
     
-    document.querySelectorAll('a[href*="amazon"]').forEach(link => {
+    document.querySelectorAll('a[href*="amazon"]').forEach(function(link) {
       link.href = AMAZON_URL;
       
       // Añadir parámetros de seguimiento si es necesario
@@ -885,7 +908,7 @@
     
     function optimizedScrollHandler() {
       if (!ticking) {
-        requestAnimationFrame(() => {
+        requestAnimationFrame(function() {
           handleStickyScroll();
           ticking = false;
         });
@@ -900,7 +923,7 @@
     }
 
     // Mejoras táctiles y de accesibilidad
-    document.querySelectorAll('.cta').forEach(button => {
+    document.querySelectorAll('.cta').forEach(function(button) {
       // Añadir feedback táctil
       button.addEventListener('touchstart', function() {
         this.style.transform = 'scale(0.98)';
@@ -913,8 +936,8 @@
 
     // Carga lazy para imágenes (implementación básica)
     if ('IntersectionObserver' in window) {
-      const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
+      const imageObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
           if (entry.isIntersecting) {
             const img = entry.target;
             if (img.dataset.src) {
@@ -926,14 +949,14 @@
         });
       });
 
-      document.querySelectorAll('img[data-src]').forEach(img => {
+      document.querySelectorAll('img[data-src]').forEach(function(img) {
         imageObserver.observe(img);
       });
     }
 
     // Manejar cambios de orientación
     window.addEventListener('orientationchange', function() {
-      setTimeout(() => {
+      setTimeout(function() {
         // Recalcular posición sticky después del cambio de orientación
         if (window.innerWidth <= 1024) {
           handleStickyScroll();

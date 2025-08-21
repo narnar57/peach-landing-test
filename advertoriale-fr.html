@@ -405,8 +405,30 @@
     }
     
     .amazon-logo {
-  height: clamp(20px, 5vw, 28px);
-  margin: 0 auto 16px;
+      height: clamp(20px, 5vw, 28px);
+      margin: 0 auto 16px;
+    }
+
+    /* Amazon logo inline styles */
+    .amazon-logo-inline {
+      height: 18px;
+      display: inline;
+      vertical-align: middle;
+      margin-left: 4px;
+    }
+
+    .amazon-logo-inline-small {
+      height: 16px;
+      display: inline;
+      vertical-align: middle;
+      margin-left: 4px;
+    }
+
+    .amazon-logo-inline-tiny {
+      height: 12px;
+      display: inline;
+      vertical-align: middle;
+      margin-left: 2px;
     }
 
     /* Responsive iframe */
@@ -714,7 +736,7 @@
         <p><strong>Votre corps a donné la vie.<br>Votre intimité mérite le meilleur.</strong></p>
         
         <a href="https://amazon.fr/peach-bidet" class="cta" target="_blank" rel="nofollow noopener">
-          🌸 S'offrir ce soulagement immédiat sur <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/logo_amazon.png?v=1755740268" alt="Amazon" style="height:18px;display:inline;vertical-align:middle;margin-left:4px">
+          🌸 S'offrir ce soulagement immédiat sur <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/logo_amazon.png?v=1755740268" alt="Amazon" class="amazon-logo-inline">
         </a>
         <div style="font-size:13px;text-align:center;color:var(--ink-70);margin-top:8px">
           ✓ Livraison Gratuite • ✓ 30 jours garantis • ✓ Votre confort n'attend pas
@@ -723,7 +745,7 @@
         <div class="trust-badges">
           <span class="trust-badge">🔒 Paiement sécurisé</span>
           <span class="trust-badge">🚚 Livraison gratuite</span>
-          <span class="trust-badge">↩️ Garantie <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/logo_amazon.png?v=1755740268" alt="Amazon" style="height:12px;display:inline;vertical-align:middle;margin-left:2px"></span>
+          <span class="trust-badge">↩️ Garantie <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/logo_amazon.png?v=1755740268" alt="Amazon" class="amazon-logo-inline-tiny"></span>
         </div>
       </div>
 
@@ -778,7 +800,7 @@
       <div class="amazon-box">
         <h3 style="color:#fff;margin:0 0 16px">Disponible sur <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/logo_amazon.png?v=1755740268" alt="Amazon" style="height:24px;display:inline;vertical-align:middle;margin-left:8px;filter:brightness(0) invert(1)"></h3>
         <a href="https://amazon.fr/peach-bidet" class="cta secondary" target="_blank" rel="nofollow noopener" style="background:#fff;color:#333;margin:0;border:none">
-          🌸 Essayer Peach maintenant sur <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/logo_amazon.png?v=1755740268" alt="Amazon" style="height:18px;display:inline;vertical-align:middle;margin-left:4px">
+          🌸 Essayer Peach maintenant sur <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/logo_amazon.png?v=1755740268" alt="Amazon" class="amazon-logo-inline">
         </a>
         <p style="margin:16px 0 0;font-size:14px;opacity:0.9">✓ Livraison gratuite • ✓ Garantie constructeur • ✓ Votre sérénité commence aujourd'hui</p>
       </div>
@@ -797,6 +819,7 @@
           title="Formulaire mini-routine postpartum"
           style="border-radius:12px;">
         </iframe>
+      </div>
 
     </article>
 
@@ -805,135 +828,190 @@
   <!-- Sticky CTA Mobile -->
   <div class="sticky-cta" id="stickyCta">
     <a href="https://amazon.fr/peach-bidet" class="cta" target="_blank" rel="nofollow noopener">
-      Offrez-vous ce réconfort sur <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/logo_amazon.png?v=1755740268" alt="Amazon" style="height:16px;display:inline;vertical-align:middle;margin-left:4px">
+      Offrez-vous ce réconfort sur <img src="https://cdn.shopify.com/s/files/1/0772/0871/5593/files/logo_amazon.png?v=1755740268" alt="Amazon" class="amazon-logo-inline-small">
     </a>
     <div class="sticky-reassurance">✓ Livraison Gratuite • ✓ Votre confort n'attend pas</div>
   </div>
 
   <script>
-    // Sticky CTA Mobile Logic
-    const stickyCta = document.getElementById('stickyCta');
-    let stickyShown = false;
+    // Variables globales pour éviter les conflits
+    var PeachPage = {
+      stickyShown: false,
+      ticking: false
+    };
 
+    // Sticky CTA Mobile Logic
     function handleStickyScroll() {
-      const scrollPercent = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+      var stickyCta = document.getElementById('stickyCta');
+      if (!stickyCta) return;
+      
+      var scrollPercent = (window.pageYOffset + window.innerHeight) / document.documentElement.scrollHeight;
       
       // Masquer la sticky si on est dans les 10% finaux (zone des CTA finaux)
       if (scrollPercent > 0.9) {
         stickyCta.classList.remove('show');
-        stickyShown = false;
+        PeachPage.stickyShown = false;
         return;
       }
       
-      if (scrollPercent > 0.65 && !stickyShown) {
+      if (scrollPercent > 0.65 && !PeachPage.stickyShown) {
         stickyCta.classList.add('show');
-        stickyShown = true;
-      } else if (scrollPercent < 0.6 && stickyShown) {
+        PeachPage.stickyShown = true;
+      } else if (scrollPercent < 0.6 && PeachPage.stickyShown) {
         stickyCta.classList.remove('show');
-        stickyShown = false;
+        PeachPage.stickyShown = false;
       }
     }
 
-    // Only activate on mobile/tablet
-    if (window.innerWidth <= 1024) {
-      window.addEventListener('scroll', handleStickyScroll);
-      window.addEventListener('resize', () => {
-        if (window.innerWidth > 1024) {
-          stickyCta.classList.remove('show');
-          window.removeEventListener('scroll', handleStickyScroll);
+    // Optimized scroll handler
+    function optimizedScrollHandler() {
+      if (!PeachPage.ticking) {
+        if (window.requestAnimationFrame) {
+          window.requestAnimationFrame(function() {
+            handleStickyScroll();
+            PeachPage.ticking = false;
+          });
+        } else {
+          // Fallback for older browsers
+          setTimeout(function() {
+            handleStickyScroll();
+            PeachPage.ticking = false;
+          }, 16);
         }
-      });
+        PeachPage.ticking = true;
+      }
     }
 
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+    // Initialize sticky behavior only on mobile/tablet
+    function initStickyBehavior() {
+      if (window.innerWidth <= 1024) {
+        if (window.addEventListener) {
+          window.addEventListener('scroll', optimizedScrollHandler, { passive: true });
+        } else {
+          // Fallback for IE8
+          window.attachEvent('onscroll', optimizedScrollHandler);
+        }
+      }
+    }
+
+    // Handle window resize
+    function handleResize() {
+      var stickyCta = document.getElementById('stickyCta');
+      if (window.innerWidth > 1024) {
+        if (stickyCta) {
+          stickyCta.classList.remove('show');
+        }
+        if (window.removeEventListener) {
+          window.removeEventListener('scroll', optimizedScrollHandler);
+        } else {
+          window.detachEvent('onscroll', optimizedScrollHandler);
+        }
+      } else {
+        initStickyBehavior();
+      }
+    }
+
+    // Smooth scrolling for anchor links (with fallback)
+    function initSmoothScroll() {
+      var anchors = document.querySelectorAll ? document.querySelectorAll('a[href^="#"]') : [];
+      for (var i = 0; i < anchors.length; i++) {
+        if (anchors[i].addEventListener) {
+          anchors[i].addEventListener('click', function (e) {
+            var targetId = this.getAttribute('href');
+            var target = document.querySelector ? document.querySelector(targetId) : document.getElementById(targetId.substring(1));
+            if (target) {
+              e.preventDefault();
+              if (target.scrollIntoView) {
+                target.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              } else {
+                // Fallback for browsers without smooth scrolling
+                target.scrollIntoView();
+              }
+            }
           });
         }
-      });
-    });
-
-    // Update Amazon links with tracking
-    const AMAZON_URL = 'https://www.amazon.fr/Bidet-Fixe-Toilette-Intime-Post-Partum/dp/B0DSLXPPZK/?_encoding=UTF8&pd_rd_w=taDbH&content-id=amzn1.sym.ed609bc0-3fc8-4ad6-8ee8-bb6ed6908861%3Aamzn1.symc.fc11ad14-99c1-406b-aa77-051d0ba1aade&pf_rd_p=ed609bc0-3fc8-4ad6-8ee8-bb6ed6908861&pf_rd_r=6BERT826DW07KN2XQMCK&pd_rd_wg=nbBHn&pd_rd_r=0fa16703-c795-4da7-8330-ace9a60bae03&ref_=pd_hp_d_atf_ci_mcx_mr_ca_hp_atf_d'
-    
-    document.querySelectorAll('a[href*="amazon"]').forEach(link => {
-      link.href = AMAZON_URL;
-      
-      // Add tracking parameters if needed
-      const url = new URL(link.href);
-      url.searchParams.set('utm_source', 'advertorial');
-      url.searchParams.set('utm_medium', 'blog');
-      url.searchParams.set('utm_campaign', 'postpartum_fr');
-      
-      link.href = url.toString();
-    });
-
-    // Mobile performance optimizations
-    let ticking = false;
-    
-    function optimizedScrollHandler() {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          handleStickyScroll();
-          ticking = false;
-        });
-        ticking = true;
       }
     }
 
-    // Replace scroll event listener for better performance on mobile
-    if (window.innerWidth <= 1024) {
-      window.removeEventListener('scroll', handleStickyScroll);
-      window.addEventListener('scroll', optimizedScrollHandler, { passive: true });
+    // Update Amazon links with tracking
+    function updateAmazonLinks() {
+      var AMAZON_URL = 'https://www.amazon.fr/Bidet-Fixe-Toilette-Intime-Post-Partum/dp/B0DSLXPPZK/?_encoding=UTF8&pd_rd_w=taDbH&content-id=amzn1.sym.ed609bc0-3fc8-4ad6-8ee8-bb6ed6908861%3Aamzn1.symc.fc11ad14-99c1-406b-aa77-051d0ba1aade&pf_rd_p=ed609bc0-3fc8-4ad6-8ee8-bb6ed6908861&pf_rd_r=6BERT826DW07KN2XQMCK&pd_rd_wg=nbBHn&pd_rd_r=0fa16703-c795-4da7-8330-ace9a60bae03&ref_=pd_hp_d_atf_ci_mcx_mr_ca_hp_atf_d&utm_source=advertorial&utm_medium=blog&utm_campaign=postpartum_fr';
+      
+      var amazonLinks = document.querySelectorAll ? document.querySelectorAll('a[href*="amazon"]') : [];
+      for (var i = 0; i < amazonLinks.length; i++) {
+        amazonLinks[i].href = AMAZON_URL;
+      }
     }
 
-    // Touch and accessibility improvements
-    document.querySelectorAll('.cta').forEach(button => {
-      // Add touch feedback
-      button.addEventListener('touchstart', function() {
-        this.style.transform = 'scale(0.98)';
-      }, { passive: true });
-      
-      button.addEventListener('touchend', function() {
-        this.style.transform = '';
-      }, { passive: true });
-    });
-
-    // Lazy loading for images (basic implementation)
-    if ('IntersectionObserver' in window) {
-      const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            if (img.dataset.src) {
-              img.src = img.dataset.src;
-              img.removeAttribute('data-src');
-              imageObserver.unobserve(img);
-            }
-          }
-        });
-      });
-
-      document.querySelectorAll('img[data-src]').forEach(img => {
-        imageObserver.observe(img);
-      });
+    // Touch feedback for CTAs
+    function initTouchFeedback() {
+      var ctas = document.querySelectorAll ? document.querySelectorAll('.cta') : [];
+      for (var i = 0; i < ctas.length; i++) {
+        var cta = ctas[i];
+        
+        if (cta.addEventListener) {
+          // Touch start
+          cta.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+          }, { passive: true });
+          
+          // Touch end
+          cta.addEventListener('touchend', function() {
+            this.style.transform = '';
+          }, { passive: true });
+        }
+      }
     }
 
     // Handle orientation changes
-    window.addEventListener('orientationchange', function() {
-      setTimeout(() => {
-        // Recalculate sticky position after orientation change
+    function handleOrientationChange() {
+      setTimeout(function() {
         if (window.innerWidth <= 1024) {
           handleStickyScroll();
         }
       }, 100);
-    });
+    }
+
+    // Initialize everything when DOM is ready
+    function initializePage() {
+      initStickyBehavior();
+      initSmoothScroll();
+      updateAmazonLinks();
+      initTouchFeedback();
+      
+      // Handle resize events
+      if (window.addEventListener) {
+        window.addEventListener('resize', handleResize);
+        window.addEventListener('orientationchange', handleOrientationChange);
+      } else {
+        window.attachEvent('onresize', handleResize);
+      }
+    }
+
+    // Cross-browser DOM ready
+    if (document.readyState === 'loading') {
+      if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', initializePage);
+      } else {
+        document.attachEvent('onreadystatechange', function() {
+          if (document.readyState === 'complete') {
+            initializePage();
+          }
+        });
+      }
+    } else {
+      initializePage();
+    }
+
+    // Fallback for very old browsers
+    if (window.addEventListener) {
+      window.addEventListener('load', initializePage);
+    } else {
+      window.attachEvent('onload', initializePage);
+    }
   </script>
 
 </body>
